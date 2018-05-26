@@ -1,0 +1,3 @@
+<div *ngFor="let item of trac; let i = index">
+  {{i}} <a [routerLink]="['/','state',item.id]">{{item.name}}</a>
+</div>
