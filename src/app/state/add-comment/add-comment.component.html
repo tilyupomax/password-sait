@@ -1,0 +1,13 @@
+<div class="comment-form">
+  <form (ngSubmit)="new_comment(); form.resetForm()" #form="ngForm">
+    <mat-form-field>
+      <mat-label>Ваше имя</mat-label>
+      <input type="text" placeholder="Давай же!" [(ngModel)]="user" name="user" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Комментарий</mat-label>
+      <input type="text" placeholder="Ваш комментарий" [(ngModel)]="text" name="text" matInput required>
+    </mat-form-field>
+    <button mat-button [disabled]="!form.valid">Отправить</button>
+  </form>
+</div>

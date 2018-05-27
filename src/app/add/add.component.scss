@@ -1,6 +1,19 @@
 .example-form {
   width: 500px;
 }
+
 .full-width {
   width: 100%;
+}
+
+.window-form {
+  width: 500px;
+  margin: 20px auto;
+  border: 3px solid #bf00c5;
+  padding: 15px;
+  background: #fff;
+  border-radius: 5px;
+}
+.example-form {
+  text-align: center;
 }

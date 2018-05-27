@@ -1,3 +1,31 @@
-<div><button mat-raised-button>Название</button>: {{text.name}}</div>
-<div><button mat-raised-button>Текст статьи</button>: {{text.title}}</div>
-<div><button mat-raised-button>Номер статьи</button>: {{id}}</div>
+<div class="article">
+  <div class="name-article" (mouseenter)="enter()" (mouseleave)="enter()">
+    <h1 *ngIf="visibleh1">{{article.name_of_article}}</h1>
+    <mat-form-field *ngIf="!visibleh1">
+        <input matInput type="text" [(ngModel)]="article.name_of_article" name="name_of_article">
+    </mat-form-field>
+    <mat-icon class="icon" (click)="visiableh1()" *ngIf="mouseenter">face</mat-icon>
+  </div>
+  <div class="main-text"  (mouseenter)="enter1()" (mouseleave)="enter1()">
+    <p *ngIf="visiblet">{{article.article}}</p>
+    <mat-form-field *ngIf="!visiblet">
+        <input matInput type="text" [(ngModel)]="article.article" name="article">
+    </mat-form-field>
+    <mat-icon class="icon" (click)="visiablet()" *ngIf="mouseenter1">face</mat-icon>
+  </div>
+
+</div>
+<div class="footer">
+  <div class="form">
+    <h2>Комментарии</h2>
+    <app-add-comment (get)="new_comment($event)"></app-add-comment>
+  </div>
+
+  <div class="comments">
+    <app-comment *ngFor="let comment of article.comments" [comment]='{user: comment.user_name, text: comment.comment}'></app-comment>
+  </div>
+</div>
+
+<div>
+
+</div>
