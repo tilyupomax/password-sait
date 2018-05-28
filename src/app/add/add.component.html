@@ -1,14 +1,15 @@
-<form class="example-form" (ngSubmit)="set(); form.resetForm()" #form="ngForm">
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Название статьи</mat-label>
-    <input type="text" placeholder="Ну давай!" matInput name="name" [(ngModel)]="name" required>
-  </mat-form-field>
-  
-  <mat-form-field class="full-width">
-    <mat-label>Контент</mat-label>
-    <textarea placeholder="Ну давай!" matInput name="title" [(ngModel)]="title" required></textarea>
-  </mat-form-field>
-  
-  <button mat-stroked-button [disabled]="!form.valid">click</button>
-</form>
+<div class="window-form">
+  <form class="example-form" (ngSubmit)="set(); form.resetForm()" #form="ngForm">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Название статьи</mat-label>
+      <input type="text" placeholder="Ну давай!" matInput name="name" [(ngModel)]="name" required>
+    </mat-form-field>
 
+    <mat-form-field class="full-width">
+      <mat-label>Контент</mat-label>
+      <textarea placeholder="Ну давай!" matInput name="title" [(ngModel)]="title" required></textarea>
+    </mat-form-field>
+
+    <button mat-stroked-button [disabled]="!form.valid">click</button>
+  </form>
+</div>

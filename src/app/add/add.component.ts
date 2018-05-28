@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { AppService, Title } from '../app.service';
+import { ArticleService, TitleOfPost } from '../article.service';
 
 @Component({
   selector: 'app-add',
@@ -10,10 +10,10 @@ export class AddComponent {
   name: string;
   title: string;
 
-  constructor(private service: AppService) { }
+  constructor(private ArticleS: ArticleService) { }
 
   set() {
-    this.service.set(this.name, this.title);
+    this.ArticleS.addPost(this.name, this.title);
   }
 
 }

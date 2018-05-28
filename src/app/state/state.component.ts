@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, AppService } from '../app.service';
+import { TitleOfPost, ArticleService, ShortPost } from '../article.service';
 
 
 @Component({
@@ -9,12 +9,16 @@ import { Title, AppService } from '../app.service';
 })
 export class StateComponent implements OnInit {
 
-  constructor(private service: AppService) { }
+  constructor(private ArticleS: ArticleService) { }
 
-  trac: Title[];
+  list: ShortPost[] = [];
+  ids: TitleOfPost[];
 
   ngOnInit() {
-    this.service.setLang().subscribe(a => this.trac = a);
+    this.ids = this.ArticleS.getPosts();
+    for (let i = 0; i < this.ids.length; i++) {
+      this.list.push(JSON.parse(localStorage.getItem('' + this.ids[i].id)));
+    }
   }
 
 }
