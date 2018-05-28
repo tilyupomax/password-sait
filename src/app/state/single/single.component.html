@@ -12,6 +12,7 @@
         <input matInput type="text" [(ngModel)]="article.article" name="article">
     </mat-form-field>
     <mat-icon class="icon" (click)="visiablet()" *ngIf="mouseenter1">face</mat-icon>
+    {{article.likes}}<mat-icon (click)="toggle_like()">favorite</mat-icon>
   </div>
 
 </div>

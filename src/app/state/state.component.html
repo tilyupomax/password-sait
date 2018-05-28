@@ -1,7 +1,7 @@
 <div class="article">
   <div>
-    <mat-card class="single_card" *ngFor="let item of trac; let i = index">{{i}}
-      <a [routerLink]="['/','state',item.id]">{{item.name}} </a>
+    <mat-card class="single_card" *ngFor="let item of list; let i = index">{{i}}
+      <a [routerLink]="['/','state',i + 1]">{{item.name_of_article}} </a>
     </mat-card>
   </div>
 

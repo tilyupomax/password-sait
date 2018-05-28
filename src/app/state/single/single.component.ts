@@ -14,6 +14,7 @@ export class SingleComponent implements OnInit {
   mouseenter1 = false;
   visibleh1 = true;
   visiblet = true;
+  like = true;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -26,11 +27,30 @@ export class SingleComponent implements OnInit {
   }
 
   visiableh1() {
+    if (!this.visibleh1) {
+      localStorage[this.id] = JSON.stringify(this.article);
+    }
     this.visibleh1 = !this.visibleh1;
   }
 
   visiablet() {
+    if (!this.visiblet) {
+      localStorage[this.id] = JSON.stringify(this.article);
+    }
+
     this.visiblet = !this.visiblet;
+  }
+
+  toggle_like() {
+    if (this.like) {
+      this.article.likes++;
+      this.like = false;
+      localStorage[this.id] = JSON.stringify(this.article);
+    } else {
+      this.article.likes--;
+      this.like = true;
+      localStorage[this.id] = JSON.stringify(this.article);
+    }
   }
 
   ngOnInit() {
@@ -42,5 +62,6 @@ export class SingleComponent implements OnInit {
 
   new_comment(comment: any) {
     this.article.comments.push(JSON.parse(comment));
+    localStorage[this.id] = JSON.stringify(this.article);
   }
 }

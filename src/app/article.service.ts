@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
 export class TitleOfPost {  // short posts
-  constructor (public name: string, public id: number) {}
+  constructor (public id: number) {}
 }
 
 export class Comment {
@@ -33,7 +33,7 @@ export class ArticleService {
   }
 
   addPost(name: string, article: string) {
-    this.posts.push(new TitleOfPost(name, this.countPost));
+    this.posts.push(new TitleOfPost(this.countPost));
 
     this.new_post = {
       name_of_article: name,
